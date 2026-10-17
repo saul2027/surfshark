@@ -1,0 +1,10 @@
+import { loadProducts } from './products.js';
+const $ = s => document.querySelector(s);
+$('#burger').onclick = () => $('#links').classList.toggle('open');
+$('#links').onclick = () => $('#links').classList.remove('open');
+document.querySelectorAll('#faq button').forEach(b => b.onclick = () => b.parentElement.classList.toggle('open'));
+const nav = $('.nav'); const sc = () => nav.classList.toggle('scrolled', scrollY > 20); sc(); addEventListener('scroll', sc, { passive: true });
+$('#y').textContent = new Date().getFullYear();
+await loadProducts($('#product-grid'));
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('show')), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
